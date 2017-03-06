@@ -130,4 +130,35 @@ console.log(ns.newClass.name); // 'yourClass'
 
 ## Events and Event Handlers with Array of Functions ##
 
+Create a new property of type array of functions to represent the event and to hold the event handlers.
+To represent the event, give the new property the event's name.
+To 'trigger' the event, loop through the array and run each function providing the right arguments.
+
+``` JavaScript
+window.ns = window.ns || {};
+
+ns.myObject = {
+
+  // Event
+  initialize: [],
+  
+  // Method
+  initializer: function(data) {
+  
+    // Trigger Event
+    this.initialize.forEach(function(handler) {
+      handler.call(handler, data);
+    });
+  }
+}
+
+ns.myObject.initialize.push(function(data) {
+  console.log(data);
+});
+
+ns.myObject.initializer('Hello World');
+```
+
+
+
 ## Sub Classing with Direct Reference ## 
