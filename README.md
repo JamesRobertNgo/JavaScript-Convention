@@ -19,6 +19,12 @@ When using the equality operator, checking for null also checks for undefined.
 
 ```JavaScript
 var DEBUG = (DEBUG != null) ? DEBUG : false;
+
+if (window.key == null) window.key = 'default';
+
+function foo(name) {
+  if (name == null) name = 'defalut name';
+}
 ```
 
 ## Default Value for None-Primatives with the Or Operator ##
@@ -31,6 +37,12 @@ This effectively only useful for arrays, objects and functions since undefined o
 ``` JavaScript
 // Variable
 var option = option || {};
+
+window.key = window.key || [];
+
+function foo(callback) {
+  callback = callback || function() {};
+}
 ```
 
 ## Namespaces with Object Notation ##
