@@ -1,8 +1,8 @@
-# JavaScript-Convention #
+# JavaScript-Convention
 
 Extend JavaScript through convention.
 
-## Constants with Upper Case ##
+## Constants with Upper Case
 
 Always assume that uppercase varaibles are constant. 
 As a rule, don't try to update/modify them on run time.
@@ -12,7 +12,7 @@ var IS_DEBUG = false;
 var VERSION = '1.0';
 var PI = 3.1415;
 ```
-## Default Values with Null Value ##
+## Default Values with Null Value
 
 Check the expression against null using the equality operator.
 When using the equality operator, checking for null also checks for undefined.
@@ -27,7 +27,7 @@ function foo(name) {
 }
 ```
 
-## Default Value for None-Primatives with the Or Operator ##
+## Default Value for None-Primatives with the Or Operator
 
 The Or operator returns the first none false expression, or the last (right most) expression.
 
@@ -45,7 +45,7 @@ function foo(callback) {
 }
 ```
 
-## Namespaces with Object Notation ##
+## Namespaces with Object Notation
 
 Create a new object (easily using object notation) for namespaces.
 Functions and variable which belong to that namespace is defined as key-value pair for that object. 
@@ -69,7 +69,7 @@ ns.getArea: function(radius) {
 };
 ```
 
-## Labeled Arguments with Object ##
+## Labeled Arguments with Object
 
 Pass and object as an argument.
 The object's key value pair shall represent the paramete where the key acts as the label.
@@ -84,7 +84,7 @@ ns.foo = function(arg) {
 ns.foo({ x: 1, y: 2 });
 ```
 
-## Singletons with Object Notation ##
+## Singletons with Object Notation
 
 Build with an object notation and assigned to a variable.
 
@@ -107,7 +107,7 @@ ns.singleton.setName('yourSingleton');
 console.log(ns.singleton.name); // 'yourSingleton'
 ```
 
-## Class with Prototype ##
+## Class with Prototype
 
 Use the original official way of creating classes in JavaScript.
 Define the properties inside the constructor.
@@ -140,7 +140,7 @@ ns.newClass.setName('yourClass');
 console.log(ns.newClass.name); // 'yourClass'
 ```
 
-## Events and Event Handlers with Array of Functions ##
+## Events and Event Handlers with Array of Functions
 
 Create a new property of type array of functions to represent the event and to hold the event handlers.
 To represent the event, give the new property the event's name.
@@ -173,4 +173,5 @@ ns.myObject.initializer('Hello World');
 
 
 
-## Sub Classing with Direct Reference ## 
+## Sub Classing with Direct Reference
+
