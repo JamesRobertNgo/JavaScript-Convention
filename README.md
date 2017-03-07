@@ -158,17 +158,17 @@ ns.MyClass = (function() {
 })();
 
 // Class MySubClass
-ns.MySubClass = (function() {
+ns.MySubClass = (function(superClass) {
   
   // Constructor
   var MySubClass = function() {
     
     // Super Class Constructor
-    na.MyClass.call(this);
+    superClass.call(this);
   };
   
   // Inheritance
-  MySubClass.prototype = new na.MyClass;
+  MySubClass.prototype = new superClass;
   MySubClass.prototype.constructor = MySubClass;
   
   // New Method
@@ -178,11 +178,11 @@ ns.MySubClass = (function() {
   MySubClass.prototype.fooOne = function() {
     
     // Super Class Method
-    na.MyClass.prototype.fooOne.call(this);
+    superClass.prototype.fooOne.call(this);
   };
   
   return MySubClass;
-})();
+})(ns.MyClass);
 ```
 ## Events and Event Handlers with Array of Functions
 
