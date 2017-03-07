@@ -12,7 +12,7 @@ var IS_DEBUG = false;
 var VERSION = '1.0';
 var PI = 3.1415;
 ```
-## Default Values with Null Value
+## Default Values with Null Comparison
 
 Check the expression against null using the equality operator.
 When using the equality operator, checking for null also checks for undefined.
@@ -27,7 +27,7 @@ function foo(name) {
 }
 ```
 
-## Default Value for None-Primatives with the Or Operator
+## Default Value for Reference Types with the Or Operator
 
 The Or operator returns the first none false expression, or the last (right most) expression.
 
@@ -140,6 +140,50 @@ ns.newClass.setName('yourClass');
 console.log(ns.newClass.name); // 'yourClass'
 ```
 
+## Sub Classing with Direct Reference
+
+``` JavaScript
+window.ns = window.ns || {};
+
+// Class MyClass
+ns.MyClass = (function() {
+  
+  // Constructor
+  var MyClass = function() {};
+  
+  // Method
+  MyClass.prototype.fooOne = function() {};
+  
+  return MyClass;
+})();
+
+// Class MySubClass
+ns.MySubClass = (function() {
+  
+  // Constructor
+  var MySubClass = function() {
+    
+    // Super Class Constructor
+    na.MyClass.call(this);
+  };
+  
+  // Inheritance
+  MySubClass.prototype = new na.MyClass();
+  MySubClass.prototype.constructor = MySubClass;
+  
+  // New Method
+  MySubClass.prototype.fooTwo = function() {};
+  
+  // Method Override
+  MySubClass.prototype.fooOne = function() {
+    
+    // Super Class Method
+    na.MyClass.prototype.fooOne.call(this);
+  };
+  
+  return MySubClass;
+})();
+```
 ## Events and Event Handlers with Array of Functions
 
 Create a new property of type array of functions to represent the event and to hold the event handlers.
@@ -173,5 +217,5 @@ ns.myObject.initializer('Hello World');
 
 
 
-## Sub Classing with Direct Reference
+
 
