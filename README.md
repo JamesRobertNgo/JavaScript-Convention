@@ -168,7 +168,7 @@ ns.MySubClass = (function() {
   };
   
   // Inheritance
-  MySubClass.prototype = new na.MyClass();
+  MySubClass.prototype = new na.MyClass;
   MySubClass.prototype.constructor = MySubClass;
   
   // New Method
@@ -208,6 +208,7 @@ ns.myObject = {
   }
 }
 
+// Assign Event handler
 ns.myObject.initialize.push(function(data) {
   console.log(data);
 });
@@ -215,7 +216,19 @@ ns.myObject.initialize.push(function(data) {
 ns.myObject.initializer('Hello World');
 ```
 
+## Delegates with Object Notation
 
+``` JavaScript
+
+window.ns = window.ns || {};
+
+ns.formConroller = function() {
+};
+
+ns.formConroller.prototype.render = function() {
+  if (this.renderDelegate && this.renderDelegate.
+};
+```
 
 
 
