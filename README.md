@@ -147,13 +147,8 @@ window.ns = window.ns || {};
 
 // Class MyClass
 ns.MyClass = (function() {
-  
-  // Constructor
   var MyClass = function() {};
-  
-  // Method
   MyClass.prototype.fooOne = function() {};
-  
   return MyClass;
 })();
 
