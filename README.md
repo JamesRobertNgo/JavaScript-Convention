@@ -93,10 +93,14 @@ window.ns = window.ns || {};
 
 ns.singleton = {
   
-  // Property
-  name: 'mySingleton',
+  getName: function() {
+    if (this.name == null) this.name = '';
+    ns.singleton.getName = function() {
+      return this.name;
+    };
+    return ns.singleton.getName();
+  },
   
-  // Method
   setName: function(newName) {
     this.name = newName;
   }
@@ -106,6 +110,10 @@ console.log(ns.singleton.name); // 'mySingleton'
 ns.singleton.setName('yourSingleton');
 console.log(ns.singleton.name); // 'yourSingleton'
 ```
+
+## Singletons Builder with Object Notation
+
+
 
 ## Class with Prototype
 
