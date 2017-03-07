@@ -84,6 +84,24 @@ ns.foo = function(arg) {
 ns.foo({ x: 1, y: 2 });
 ```
 
+## Function Setup with Lazy Function
+
+``` JavaScript
+window.ns = window.ns || {};
+
+ns.foo = function() {
+  var counter = 0;
+  
+  // Reassign
+  ns.foo = function() {
+    counter = counter + 1;
+    return counter;
+  };
+  
+  return ns.foo();
+}
+```
+
 ## Singletons with Object Notation
 
 Build with an object notation and assigned to a variable.
