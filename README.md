@@ -94,10 +94,13 @@ window.ns = window.ns || {};
 ns.singleton = {
   
   getName: function() {
-    if (this.name == null) this.name = '';
-    ns.singleton.getName = function() {
+    if (this.name == null)
+      this.name = '';
+    
+    this.getName = function() {
       return this.name;
     };
+    
     return ns.singleton.getName();
   },
   
