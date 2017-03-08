@@ -109,32 +109,56 @@ Build with an object notation and assigned to a variable.
 ``` JavaScript
 window.ns = window.ns || {};
 
-ns.singleton = {
-  
-  getName: function() {
-    if (this.name == null)
-      this.name = '';
-    
-    this.getName = function() {
-      return this.name;
-    };
-    
-    return ns.singleton.getName();
-  },
-  
-  setName: function(newName) {
-    this.name = newName;
+ns.singleton = (function() {
+  return {
+
+    getName: function() {
+      if (this.name == null)
+        this.name = '';
+
+      this.getName = function() {
+        return this.name;
+      };
+
+      return ns.singleton.getName();
+    },
+
+    setName: function(newName) {
+      this.name = newName;
+    }
   }
-}
+})();
 
 console.log(ns.singleton.name); // 'mySingleton'
 ns.singleton.setName('yourSingleton');
 console.log(ns.singleton.name); // 'yourSingleton'
 ```
 
-## Singletons Builder with Object Notation
+## Singletons Starter with Object Notation
 
+``` JavaScript
+window.ns = window.ns || {};
 
+ns.starterSingleton = (function() {
+  return {
+    method01: function() {},
+    method02: function() {},
+    method03: function() {}
+  }
+})();
+
+ns.singleton = (function(starter) {
+  return {
+    method01: starter.method01,
+    method02: starter.method02,
+    method03: starter.method03,
+    
+    method04: function() {
+      alert('hello world');
+    }
+  }
+})(ns.starterSingleton);
+```
 
 ## Class with Prototype
 
