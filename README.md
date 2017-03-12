@@ -1,5 +1,6 @@
 # JavaScript-Patterns
 
+JavaScript Functionalities Through Patterns.
 
 ## Constants with Upper Case
 
