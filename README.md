@@ -1,6 +1,5 @@
-# JavaScript-Convention
+# JavaScript-Patterns
 
-Extend JavaScript through convention.
 
 ## Constants with Upper Case
 
